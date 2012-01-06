@@ -1,6 +1,6 @@
 class SetupRam < ActiveRecord::Migration
-  class AssetStatus < ActiveRecord::Base;set_table_name "ram_asset_statues";end
-  class PoolStatus < ActiveRecord::Base;set_table_name "ram_pool_statues";end
+  class AssetStatus < ActiveRecord::Base;set_table_name "ram_asset_statuses";end
+  class PoolStatus < ActiveRecord::Base;set_table_name "ram_pool_statuses";end
   
   def self.up
     create_table :ram_pools, :force => true do |t|
