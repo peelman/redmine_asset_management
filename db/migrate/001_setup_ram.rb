@@ -3,6 +3,19 @@ class RAMSetup < ActiveRecord::Migration
   class RAMAssetStatus < ActiveRecord::Base; end
   
   def self.up
+    create_table :ram_pools, :force => true do |t|
+      t.string :name
+      t.integer :parent_id, :owned_by, :created_by, :updated_by, :status
+      t.timestamps
+    end
+
+    create_table :ram_pool_notes, :force => true do |t|
+      t.string :summary, :limit => 200
+      t.string :body, :limit => 2500
+      t.integer :pool_id, :created_by, :updated_by
+      t.timestamps
+    end
+    
     create_table :ram_assets, :force => true do |t|
       t.string :make, :limit => 100, :null => false
       t.string :model, :serial, :description, :limit => 100, :null => false, :default => nil
@@ -38,6 +51,7 @@ class RAMSetup < ActiveRecord::Migration
     
     create_table :ram_asset_statuses, :force => true do |t|
       t.string :name
+      t.timestamps
     end
     
     create_table :ram_licenses, :force => true do |t|
@@ -91,6 +105,14 @@ class RAMSetup < ActiveRecord::Migration
     
     create_table :ram_asset_has_licenses, :id => false do |t|
       t.integer :asset_id, :issue_id
+    end
+
+    create_table :ram_pool_has_assets, :id => false do |t|
+      t.integer :pool_id, :asset_id
+    end
+    
+    create_table :ram_pool_has_licenses, :id => false do |t|
+      t.integer :pool_id, :license_id
     end
     
     Location.create :name => "Storage Closet A"
