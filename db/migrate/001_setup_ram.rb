@@ -1,5 +1,4 @@
-class RAMSetup < ActiveRecord::Migration
-  class RAMLocation < ActiveRecord::Base; end
+class SetupRAM < ActiveRecord::Migration
   class RAMAssetStatus < ActiveRecord::Base; end
   
   def self.up
@@ -92,12 +91,6 @@ class RAMSetup < ActiveRecord::Migration
       t.string :name, :description
       t.timestamps
     end
-    
-    create_table :ram_locations, :force => true do |t|
-      t.string :name
-      t.timestamps
-    
-    end
 
     create_table :ram_issue_has_assets, :id => false do |t|
       t.integer :asset_id, :issue_id
@@ -114,11 +107,6 @@ class RAMSetup < ActiveRecord::Migration
     create_table :ram_pool_has_licenses, :id => false do |t|
       t.integer :pool_id, :license_id
     end
-    
-    Location.create :name => "Storage Closet A"
-    Location.create :name => "Storage Closet B"
-    Location.create :name => "Storage Closet C"
-    Location.create :name => "Storage Closet D"
     
     AssetStatus.create :name => "Active"
     AssetStatus.create :name => "Inactive"
