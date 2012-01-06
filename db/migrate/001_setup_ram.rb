@@ -1,5 +1,6 @@
 class SetupRam < ActiveRecord::Migration
-  class AssetStatus < ActiveRecord::Base; end
+  class AssetStatus < ActiveRecord::Base;set_table_name "ram_asset_statues";end
+  class PoolStatus < ActiveRecord::Base;set_table_name "ram_pool_statues";end
   
   def self.up
     create_table :ram_pools, :force => true do |t|
@@ -113,6 +114,12 @@ class SetupRam < ActiveRecord::Migration
       t.integer :pool_id, :license_id
     end
     
+    PoolStatus.create :name => "Active"
+    PoolStatus.create :name => "Inactive"
+    PoolStatus.create :name => "Pending"
+    PoolStatus.create :name => "Loaned"
+    PoolStatus.create :name => "Closed"
+
     AssetStatus.create :name => "Active"
     AssetStatus.create :name => "Inactive"
     AssetStatus.create :name => "Missing"

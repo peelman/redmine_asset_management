@@ -9,7 +9,7 @@ class RedmineAssetManagementController < ApplicationController
     @assets = Asset.find(:all,
                   :order => 'make ASC',
                   :limit => 10)
-    @licenses = Licenses.find(:all,
+    @licenses = License.find(:all,
                   :order => 'name ASC',
                   :limit => 10)
 
