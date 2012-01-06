@@ -10,7 +10,7 @@ module RedmineAssetManagement
                                 :join_table => "ram_issue_has_assets", 
                                 :class_name => "RAMAsset", 
                                 :foreign_key => "issue_id", 
-                                :associate_foreign_key => "asset_id"
+                                :association_foreign_key => "asset_id"
       end
     end
   end
