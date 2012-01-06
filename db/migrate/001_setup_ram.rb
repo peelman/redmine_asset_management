@@ -1,12 +1,13 @@
 class RAMSetup < ActiveRecord::Migration
   class RAMLocation < ActiveRecord::Base; end
+  class RAMAssetStatus < ActiveRecord::Base; end
   
   def self.up
     create_table :ram_assets, :force => true do |t|
       t.string :make, :limit => 100, :null => false
       t.string :model, :serial, :limit => 100, :null => false, :default => nil
       t.string :expected_life, :limit => 50
-      t.integer :parent_id, :owned_by, :created_by, :updated_by, :default_location
+      t.integer :parent_id, :owned_by, :created_by, :updated_by, :default_location, :status
       t.datetime :purchase_date
       t.string :purchase_price, :limit => 15
       t.string :purchase_order_number, :limit => 50
@@ -18,13 +19,13 @@ class RAMSetup < ActiveRecord::Migration
     end
     
     create_table :ram_asset_categories, :force => true do |t|
-      t.string "name", "description"
+      t.string :name, :description
       t.timestamps
     end
 
     create_table :ram_asset_notes, :force => true do |t|
-      t.string "summary", :limit => 200
-      t.string "body", :limit => 2500
+      t.string :summary, :limit => 200
+      t.string :body, :limit => 2500
       t.integer :asset_id, :created_by, :updated_by
       t.timestamps
     end
@@ -33,6 +34,10 @@ class RAMSetup < ActiveRecord::Migration
       t.string :mac, :limit => 21, :null => false
       t.string :type, :limit => 25, :null => false
       t.timestamps
+    end
+    
+    create_table :ram_asset_statuses, :force => true do |t|
+      t.string :name
     end
     
     create_table :ram_licenses, :force => true do |t|
@@ -70,7 +75,7 @@ class RAMSetup < ActiveRecord::Migration
     end
     
     create_table :ram_license_categories, :force => true do |t|
-      t.string "name", "description"
+      t.string :name, :description
       t.timestamps
     end
     
@@ -81,19 +86,28 @@ class RAMSetup < ActiveRecord::Migration
     end
 
     create_table :ram_issue_has_assets, :id => false do |t|
-      t.integer "asset_id"
-      t.integer "issue_id"
+      t.integer :asset_id
+      t.integer :issue_id
     end
     
     create_table :ram_asset_has_licenses, :id => false do |t|
-      t.integer "asset_id"
-      t.integer "license_id"
+      t.integer :asset_id
+      t.integer :issue_id
     end
     
     Location.create :name => "Storage Closet A"
     Location.create :name => "Storage Closet B"
     Location.create :name => "Storage Closet C"
     Location.create :name => "Storage Closet D"
+    
+    AssetStatus.create :name => "Active"
+    AssetStatus.create :name => "Inactive"
+    AssetStatus.create :name => "Missing"
+    AssetStatus.create :name => "Loaned"
+    AssetStatus.create :name => "Destroyed"
+    AssetStatus.create :name => "Sold"
+    AssetStatus.create :name => "Stolen"
+
   end
 
   def self.down
