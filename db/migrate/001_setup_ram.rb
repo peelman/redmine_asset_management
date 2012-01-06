@@ -1,5 +1,5 @@
-class SetupRAM < ActiveRecord::Migration
-  class RAMAssetStatus < ActiveRecord::Base; end
+class SetupRam < ActiveRecord::Migration
+  class AssetStatus < ActiveRecord::Base; end
   
   def self.up
     create_table :ram_pools, :force => true do |t|

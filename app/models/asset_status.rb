@@ -1,8 +1,8 @@
-class RAMAssetStatus < ActiveRecord::Base
+class AssetStatus < ActiveRecord::Base
   
-  set_table_name "ram_asset_statuses"
+  table_name_prefix "ram_"
   unloadable
   
-  has_many :assets, :class_name => "RAMAsset"
+  has_many :assets, :class_name => "Asset"
 
 end

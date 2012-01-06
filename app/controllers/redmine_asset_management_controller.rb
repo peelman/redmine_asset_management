@@ -1,15 +1,15 @@
-class RAMController < ApplicationController
+class RedmineAssetManagementController < ApplicationController
   unloadable
   
   def index
 #    limit = per_page_option
-    @assets_count = RAMAsset.count
-    @licenses_count = RAMLicense.count
+    @assets_count = Asset.count
+    @licenses_count = License.count
 
-    @assets = RAMAsset.find(:all,
+    @assets = Asset.find(:all,
                   :order => 'make ASC',
                   :limit => 10)
-    @licenses = RAMLicenses.find(:all,
+    @licenses = Licenses.find(:all,
                   :order => 'name ASC',
                   :limit => 10)
 

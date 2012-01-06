@@ -1,9 +1,9 @@
-class RAMLicenseType < ActiveRecord::Base
+class LicenseType < ActiveRecord::Base
   
-  set_table_name "ram_license_types"
+  table_name_prefix "ram_"
   unloadable
   
-  has_many :licenses, :class_name => "RAMLicense"
+  has_many :licenses, :class_name => "License"
   
   validates_presence_of :name
 

@@ -1,9 +1,9 @@
-class RAMLicenseCategory < ActiveRecord::Base
+class LicenseCategory < ActiveRecord::Base
   
-  set_table_name "ram_license_categories"
+  table_name_prefix "ram_"
   unloadable
   
-  has_many :licenses, :class_name => "RAMLicense", :foreign_key => :category
+  has_many :licenses, :class_name => "License", :foreign_key => :category
 
   validates_presence_of :name
 end
