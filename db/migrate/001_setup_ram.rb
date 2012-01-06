@@ -9,6 +9,8 @@ class RAMSetup < ActiveRecord::Migration
       t.string :notes, :limit => 1000, :null => true, :default => nil
       t.integer :parent_id
       t.datetime :purchase_date
+      t.string :purchase_price, :limit => 15
+      t.string :purchase_notes, :limit => 1000
       t.boolean :retired, :default => false
       t.datetime :retired_date, :null => true
       t.timestamps
