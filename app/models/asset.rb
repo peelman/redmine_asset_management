@@ -5,7 +5,7 @@ class RAMAsset < ActiveRecord::Base
   
   has_and_belongs_to_many :issues, :join_table => "ram_issue_has_assets"
   has_and_belongs_to_many :licenses, :class_name => "RAMLicense", :join_table => "ram_asset_has_licenses"
-  has_and_belongs_to_many :categories, :class_name => "RAMAssetCategory", :join_table => "ram_asset_has_categories"
+  belongs_to :category, :class_name => "RAMAssetCategory"
   has_many :asset_notes, :class_name => "RAMAssetNote", :foreign_key => :asset_id
   has_many :children, :class_name => "RAMAsset", :foreign_key => :parent_id
   has_one :parent_id, :class_name => "RAMAsset"

@@ -4,7 +4,7 @@ class RAMLicense < ActiveRecord::Base
   unloadable
 
   has_and_belongs_to_many :assets, :class_name => "RAMAsset", :join_table => "ram_asset_has_licenses"
-  has_and_belongs_to_many :categories, :class_name => "RAMLicenseCategory", :join_table => "ram_license_has_categories"
+  belongs_to :category, :class_name => "RAMLicenseCategory"
   belongs_to :type, :class_name => "RAMLicenseType"
   has_many :keys, :class_name => "RAMLicenseKey"
   has_one :owned_by, :class_name => "User"

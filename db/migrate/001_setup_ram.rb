@@ -5,9 +5,9 @@ class RAMSetup < ActiveRecord::Migration
   def self.up
     create_table :ram_assets, :force => true do |t|
       t.string :make, :limit => 100, :null => false
-      t.string :model, :serial, :limit => 100, :null => false, :default => nil
+      t.string :model, :serial, :description, :limit => 100, :null => false, :default => nil
       t.string :expected_life, :limit => 50
-      t.integer :parent_id, :owned_by, :created_by, :updated_by, :default_location, :status
+      t.integer :parent_id, :owned_by, :created_by, :updated_by, :category, :default_location, :status
       t.datetime :purchase_date
       t.string :purchase_price, :limit => 15
       t.string :purchase_order_number, :limit => 50
@@ -43,7 +43,7 @@ class RAMSetup < ActiveRecord::Migration
     create_table :ram_licenses, :force => true do |t|
       t.string :name, :limit => 100, :null => false
       t.string :version, :limit => 15
-      t.integer :type, :owned_by, :created_by, :updated_by
+      t.integer :type, :category, :owned_by, :created_by, :updated_by
       t.integer :count
       t.string :license_notes, :limit => 1000
       t.datetime :purchase_date
@@ -86,13 +86,11 @@ class RAMSetup < ActiveRecord::Migration
     end
 
     create_table :ram_issue_has_assets, :id => false do |t|
-      t.integer :asset_id
-      t.integer :issue_id
+      t.integer :asset_id, :issue_id
     end
     
     create_table :ram_asset_has_licenses, :id => false do |t|
-      t.integer :asset_id
-      t.integer :issue_id
+      t.integer :asset_id, :issue_id
     end
     
     Location.create :name => "Storage Closet A"
@@ -115,6 +113,7 @@ class RAMSetup < ActiveRecord::Migration
     drop_table :ram_asset_categories
     drop_table :ram_asset_notes
     drop_table :ram_asset_mac_addresses
+    drop_table :ram_asset_statuses
     drop_table :ram_licenses
     drop_table :ram_license_keys
     drop_table :ram_license_types
