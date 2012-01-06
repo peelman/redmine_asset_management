@@ -15,6 +15,11 @@ class SetupRam < ActiveRecord::Migration
       t.timestamps
     end
     
+    create_table :ram_pool_statuses, :force => true do |t|
+      t.string :name
+      t.timestamps
+    end
+    
     create_table :ram_assets, :force => true do |t|
       t.string :make, :limit => 100, :null => false
       t.string :model, :serial, :description, :limit => 100, :null => false, :default => nil

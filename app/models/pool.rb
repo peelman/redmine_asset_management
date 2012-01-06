@@ -8,7 +8,7 @@ class Pool < ActiveRecord::Base
   has_many :notes, :class_name => "PoolNote", :foreign_key => :pool_id
   has_many :children, :class_name => "Pool", :foreign_key => :parent_id
   has_one :parent_id, :class_name => "Pool"
-  has_one :status, :class_name => "AssetStatus"
+  has_one :status, :class_name => "PoolStatus"
   has_one :owned_by, :class_name => "User"
   has_one :created_by, :class_name => "User"
   has_one :updated_by, :class_name => "User"
