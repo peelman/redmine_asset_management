@@ -12,7 +12,7 @@
 <% if authorize_for_with_global('ram_assets', 'index', true) %>
 <div id="assets">
 	
-  <%= render :partial => 'list' %>
+  <%= render :partial => 'ram/assets/list' %>
   <p class="pagination">Assets Count: <%= @assets_count %></p>
 </div>
 <% end %>
@@ -21,7 +21,7 @@
 <% if authorize_for_with_global('ram_licenses', 'index', true) %>
 <div id="licenses">
 	
-  <%= render :partial => 'list' %>
+  <%= render :partial => 'ram/licenses/list' %>
   <p class="pagination">Licenses Count: <%= @licenses_count %></p>
 </div>
 <% end %>

@@ -1,0 +1,14 @@
+<% if authorize_for_with_global('licenses', 'new', true) %>
+	<div class="contextual">
+  	<%= link_to('New License', :controller => "license", :action => "new", :class => 'icon icon-asset-add') %>
+	</div>
+<% end %>
+<h2>Licenses</h2>
+<% if authorize_for_with_global('licenses', 'index', true) %>
+<div id="licenses">
+	
+  <%= render :partial => 'ram/licenses/list' %>
+  <p class="pagination"></p>
+</div>
+<% end %>
+<% html_title(l(:title_license_plural)) -%>

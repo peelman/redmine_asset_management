@@ -1,10 +1,10 @@
 <table class="list">
   <thead style="text-align:left;">
     <tr>
-      <th><%= l('asset_name') %></th>
-      <th><%= l('asset_abbreviation') %></th>
-      <th><%= l('asset_contacts') %></th>
-      <th><%= l('label_issue_plural') %></th>
+      <th><%= l('label_asset_make') %></th>
+      <th><%= l('label_asset_model') %></th>
+      <th><%= l('label_asset_serial') %></th>
+      <th><%= l('label_asset_description') %></th>
 			<% if authorize_for_with_global(:assets, :delete, true) %>
       <th><%= l('asset_remove') %></th>
 				<% end %>

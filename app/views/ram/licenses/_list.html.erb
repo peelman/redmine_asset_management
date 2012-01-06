@@ -1,0 +1,28 @@
+<table class="list">
+  <thead style="text-align:left;">
+    <tr>
+      <th><%= l('label_license_publisher_name') %></th>
+      <th><%= l('label_license_name') %></th>
+      <th><%= l('label_license_version') %></th>
+      <th><%= l('label_license_purchase_date') %></th>
+			<% if authorize_for_with_global(:licenses, :delete, true) %>
+      <th><%= l('license_remove') %></th>
+				<% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @licenses.each do |license| %>
+      <tr class="<%= cycle("odd", "even") %>">
+				<td><%= license.publisher_name %></td>
+				<td><%= link_to(license.name, license, :id => license) %></td>
+				<td><%= license.version %></td>
+				<td><%= license.purchase_date %></td>
+				<% if authorize_for_with_global(:licenses, :delete, true) %>
+				<td>
+					<%= link_to(image_tag('delete.png'), license_path(license,:per_page => params[:per_page], :page => params[:page]), :confirm => "Are you sure?", :method => :delete) %>
+				</td>
+				<% end %>
+      </tr>
+    <%- end %>
+  </tbody>
+</table>
