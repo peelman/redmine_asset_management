@@ -1,6 +1,6 @@
 class AssetMACAddress < ActiveRecord::Base
   
-  table_name_prefix "ram_"
+  set_table_name "ram_asset_mac_addresses"
   unloadable
   
   belongs_to :assets, :class_name => "Asset"

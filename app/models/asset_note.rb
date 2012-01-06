@@ -1,6 +1,6 @@
 class AssetNote < ActiveRecord::Base
   
-  table_name_prefix "ram_"
+  set_table_name "ram_asset_notes"
   unloadable
   
   belongs_to :assets, :class_name => "Asset"

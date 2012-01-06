@@ -1,6 +1,6 @@
 class LicenseKey < ActiveRecord::Base
   
-  table_name_prefix "ram_"
+  set_table_name "ram_license_keys"
   unloadable
   
   belongs_to :license, :class_name => "License"

@@ -1,6 +1,6 @@
 class AssetCategory < ActiveRecord::Base
   
-  table_name_prefix "ram_"
+  set_table_name "ram_asset_categories"
   unloadable
 
   has_many :assets, :class_name => "Asset", :foreign_key => :category

@@ -1,6 +1,6 @@
 class PoolNote < ActiveRecord::Base
   
-  table_name_prefix "ram_"
+  set_table_name "ram_pool_notes"
   unloadable
   
   belongs_to :pool, :class_name => "Pool"

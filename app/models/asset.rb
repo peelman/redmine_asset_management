@@ -1,6 +1,6 @@
 class Asset < ActiveRecord::Base
   acts_as_tree
-  table_name_prefix "ram_"
+  set_table_name "ram_assets"
   unloadable
   
   has_and_belongs_to_many :pools, :class_name => "Pool", :join_table => "ram_pool_has_assets", :foreign_key => :asset_id, :association_foreign_key => :pool_id

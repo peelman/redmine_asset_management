@@ -1,6 +1,6 @@
 class License < ActiveRecord::Base
   
-  table_name_prefix "ram_"
+  set_table_name "ram_licenses"
   unloadable
 
   has_and_belongs_to_many :pools, :class_name => "Pool", :join_table => "ram_pool_has_licenses", :foreign_key => :license_id, :association_foreign_key => :pool_id

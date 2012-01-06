@@ -1,6 +1,6 @@
 class LicenseType < ActiveRecord::Base
   
-  table_name_prefix "ram_"
+  set_table_name "ram_license_types"
   unloadable
   
   has_many :licenses, :class_name => "License"
