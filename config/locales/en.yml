@@ -1,0 +1,34 @@
+# English strings go here for Rails i18n
+en:
+  label_asset: Asset
+  label_asset_plural: Assets
+  label_asset_make: Make
+  label_asset_model: Model
+  label_asset_serial: Serial
+  label_asset_description: Description
+  label_asset_new: New Asset
+  label_asset_view: View Asset
+  label_asset_edit: Edit Asset
+  label_asset_delete: Delete Asset
+
+  label_license: License
+  label_license_plural: Licenses
+  label_license_publisher_name: Publisher
+  label_license_publisher_contact_name: Contact Name
+  label_license_publisher_contact_phone: Contact Phone
+  label_license_publisher_contact_email: Contact Email
+  label_license_name: Name
+  label_license_version: Version
+  label_license_purchase_date: Purchased
+  label_license_key: Key
+  label_license_new: New License
+  label_license_view: View License
+  label_license_edit: Edit License
+  label_license_delete: Delete License
+
+  label_add: Add
+  label_delete: Delete
+  label_cancel: Cancel
+  
+  multi_select_key_command: Command
+  multi_select_key_control: Control

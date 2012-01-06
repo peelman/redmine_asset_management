@@ -5,6 +5,8 @@ class RedmineAssetManagementController < ApplicationController
 #    limit = per_page_option
     @assets_count = Asset.count
     @licenses_count = License.count
+    @asset_statuses_count = AssetStatus.count
+    @pool_statuses_count = PoolStatus.count
 
     @assets = Asset.find(:all,
                   :order => 'make ASC',
