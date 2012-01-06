@@ -14,7 +14,7 @@ class RedmineAssetManagementController < ApplicationController
                   :limit => 10)
 
     respond_to do |format|
-      format.html { render :template => 'ram/assets/index.html.erb', :layout => !request.xhr? }
+      format.html { render :template => 'ram/index.html.erb', :layout => !request.xhr? }
     end
   end
   
