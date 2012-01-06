@@ -1,0 +1,29 @@
+
+<div class="contextual">
+  	<% if authorize_for_with_global('ram_licenses', 'new', true) %>
+		<%= link_to('New License', new_license_path, :class => 'icon icon-license-add') %>
+	<% end %>
+  	<% if authorize_for_with_global('ram_assets', 'new', true) %>
+		<%= link_to('New Asset', new_asset_path, :class => 'icon icon-asset-add') %>
+	<% end %>
+</div>
+
+<h2>Assets</h2>
+<% if authorize_for_with_global('ram_assets', 'index', true) %>
+<div id="assets">
+	
+  <%= render :partial => 'list' %>
+  <p class="pagination">Assets Count: <%= @assets_count %></p>
+</div>
+<% end %>
+
+<h2>Licenses</h2>
+<% if authorize_for_with_global('ram_licenses', 'index', true) %>
+<div id="licenses">
+	
+  <%= render :partial => 'list' %>
+  <p class="pagination">Licenses Count: <%= @licenses_count %></p>
+</div>
+<% end %>
+
+<% html_title(l(:title_ram_plural)) -%>

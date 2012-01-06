@@ -7,7 +7,7 @@ class RAMAsset < ActiveRecord::Base
   has_and_belongs_to_many :issues, :join_table => "ram_issue_has_assets", :foreign_key => :asset_id, :associate_foreign_key => :issue_id
   has_and_belongs_to_many :licenses, :class_name => "RAMLicense", :join_table => "ram_asset_has_licenses", :foreign_key => :asset_id, :associate_foreign_key => :license_id
   belongs_to :category, :class_name => "RAMAssetCategory"
-  has_many :asset_notes, :class_name => "RAMAssetNote", :foreign_key => :asset_id
+  has_many :notes, :class_name => "RAMAssetNote", :foreign_key => :asset_id
   has_many :children, :class_name => "RAMAsset", :foreign_key => :parent_id
   has_one :parent_id, :class_name => "RAMAsset"
   has_one :status, :class_name => "RAMAssetStatus"

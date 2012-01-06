@@ -20,7 +20,7 @@ Redmine::Plugin.register :redmine_asset_management do
   description 'Simple Asset Management for Redmine & ChiliProject'
   version '0.1.0'
     
-  menu :top_menu, :assets, { :controller => :ram_controller, :action => :index }, :caption => 'Assets'
-  menu :admin_menu, :assets, {:controller => :ram_controller, :action => :index }, :caption => 'Asset Management'
+  menu :top_menu, :assets, { :controller => :ram, :action => :index }, :caption => 'Assets'
+  menu :admin_menu, :assets, {:controller => :ram, :action => :index }, :caption => 'Asset Management'
 
 end

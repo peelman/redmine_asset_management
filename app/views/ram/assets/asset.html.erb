@@ -1,0 +1,14 @@
+<% if authorize_for_with_global('assets', 'new', true) %>
+	<div class="contextual">
+  	<%= link_to('New Asset', new_asset_path, :class => 'icon icon-asset-add') %>
+	</div>
+<% end %>
+<h2>Assets</h2>
+<% if authorize_for_with_global('assets', 'index', true) %>
+<div id="assets">
+	
+  <%= render :partial => 'asset_list' %>
+  <p class="pagination"></p>
+</div>
+<% end %>
+<% html_title(l(:title_asset_plural)) -%>
