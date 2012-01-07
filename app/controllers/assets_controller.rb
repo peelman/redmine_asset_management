@@ -100,39 +100,10 @@ class AssetsController < ApplicationController
       end
     end
   end
-  
-  def new_asset_add_contact
-    @asset = Asset.new
-    @asset.contacts.build
-    respond_to do |format|
-      format.html { render :partial => 'assets/contacts/new_ajax', :locals => { :asset => @asset } }
-      format.js { render(:update) { |page| page.insert_html :bottom, 'contacts_form_list', :partial => 'assets/contacts/new_ajax', :locals => { :asset => @asset } } }
-    end
-  end
-
-  
-  def removecontact
-    @asset = Asset.find(params[:id])
-    respond_to do |format|
-      if @asset.contacts.delete(Contact.find(params[:contact_id]))
-        format.html { redirect_to @asset }
-        format.js do
-          render :update do |page|
-            page.replace_html "asset-contacts", :partial => 'assets/contacts/list', :locals => {:asset => @asset, :issue => @issue, :project => @project}
-          end
-        end
-      else
-        format.js do
-          render :update do |page|
-            page.replace_html "assets", :partial => 'assets/contacts/list', :locals => {:asset => @asset, :issue => @issue, :project => @project}
-          end
-        end
-      end
-    end
-  end
 
   def create
     @asset = Asset.new(params[:asset])
+    @asset.status = AssetStatus.find(params[:asset][:status_id])
     respond_to do |format|
       if @asset.save
         format.html { redirect_to assets_path }

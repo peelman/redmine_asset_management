@@ -25,13 +25,13 @@
       </tr>
       <tr>
         <td style="text-align:right;"><%= f.label :status, l('label_asset_status') %>:</td>
-        <td><%= f.select(:status, options_for_select(@statuses)) %></td>
+        <td><%= f.select(:status, AssetStatus.all.collect{|s| [s.name, s.id]}) %></td>
       </tr>
     </tbody>
   </table>
   <hr />
 
   <p>
-    <%= f.submit "'Save'#{f.object.new_record? ? ' New ' : ' ' }Asset" %> <%= f.object.new_record? ? link_to(l(:link_cancel), assets_path) : link_to(l(:link_cancel), asset_path, :id => @asset)  %>
+    <%= f.submit "Save#{f.object.new_record? ? ' New ' : ' ' }Asset" %> <%= f.object.new_record? ? link_to(l(:link_cancel), assets_path) : link_to(l(:link_cancel), asset_path, :id => @asset)  %>
   </p>
 <%- end %>
