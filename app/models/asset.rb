@@ -8,12 +8,13 @@ class Asset < ActiveRecord::Base
   has_and_belongs_to_many :licenses, :class_name => "License", :join_table => "ram_asset_has_licenses", :foreign_key => :asset_id, :association_foreign_key => :license_id
   belongs_to :category, :class_name => "AssetCategory"
   belongs_to :status, :class_name => "AssetStatus"
-  has_many :notes, :class_name => "AssetNote", :foreign_key => :asset_id
+  belongs_to :owned_by, :class_name => "User"
+  belongs_to :created_by, :class_name => "User"
+  belongs_to :updated_by, :class_name => "User"
+  belongs_to :parent_id, :class_name => "Asset"
   has_many :children, :class_name => "Asset", :foreign_key => :parent_id
-  has_one :parent_id, :class_name => "Asset"
-  has_one :owned_by, :class_name => "User"
-  has_one :created_by, :class_name => "User"
-  has_one :updated_by, :class_name => "User"
+  has_many :notes, :class_name => "AssetNote", :foreign_key => :asset_id
+
 
   validates_presence_of :make
   validates_presence_of :model

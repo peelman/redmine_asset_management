@@ -12,6 +12,9 @@ en:
   label_asset_expected_life: Expected Life
   label_asset_status: Status
   label_asset_category: Category
+  label_asset_owned_by: Owned By
+  label_asset_created_by: Created By
+  label_asset_updated_by: Updated By
   label_asset_new: New Asset
   label_asset_view: View Asset
   label_asset_edit: Edit Asset
