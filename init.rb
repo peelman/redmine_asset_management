@@ -6,6 +6,7 @@ Dispatcher.to_prepare :redmine_asset_management do
   # Guards against including the module multiple time (like in tests)
   # and registering multiple callbacks
   Issue.send(:include, RedmineAssetManagement::IssuePatch) unless Issue.included_modules.include?(RedmineAssetManagement::IssuePatch)
+  User.send(:include, RedmineAssetManagement::UserPatch) unless Issue.included_modules.include?(RedmineAssetManagement::UserPatch)
   ApplicationController.send(:include, RedmineAssetManagement::ApplicationControllerPatch) unless ApplicationController.included_modules.include?(RedmineAssetManagement::ApplicationControllerPatch)
 #  Query.send(:include, RedmineAssetManagement::QueryPatch) unless Query.included_modules.include? RedmineAssetManagement::QueryPatch
 end

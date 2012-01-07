@@ -99,20 +99,20 @@ class SetupRam < ActiveRecord::Migration
       t.timestamps
     end
 
+    create_table :ram_pool_has_assets, :force => true, :id => false do |t|
+      t.integer :pool_id, :asset_id
+    end
+
+    create_table :ram_pool_has_licenses, :force => true, :id => false do |t|
+      t.integer :pool_id, :license_id
+    end
+    
     create_table :ram_issue_has_assets, :force => true, :id => false do |t|
       t.integer :asset_id, :issue_id
     end
     
     create_table :ram_asset_has_licenses, :force => true, :id => false do |t|
-      t.integer :asset_id, :issue_id
-    end
-
-    create_table :ram_pool_has_assets, :force => true, :id => false do |t|
-      t.integer :pool_id, :asset_id
-    end
-    
-    create_table :ram_pool_has_licenses, :force => true, :id => false do |t|
-      t.integer :pool_id, :license_id
+      t.integer :asset_id, :license_id
     end
     
     PoolStatus.create :name => "Active"

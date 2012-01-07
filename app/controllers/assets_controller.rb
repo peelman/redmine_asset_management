@@ -20,7 +20,7 @@ class AssetsController < ApplicationController
 
   def new
     @asset = Asset.new
-    @statuses = AssetStatus.all.map { |status| [status.name, status.id] }
+    
     respond_to do |format|
       format.html { render :template => 'ram/assets/new.html.erb', :layout => !request.xhr?, :locals => { :statuses => @statuses } }
       format.js do

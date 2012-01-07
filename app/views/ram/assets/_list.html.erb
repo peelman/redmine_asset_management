@@ -6,6 +6,7 @@
 			<th><%= l('label_asset_serial') %></th>
 			<th><%= l('label_asset_description') %></th>
 			<th><%= l('label_asset_owned_by') %></th>
+			<th><%= l('label_asset_status') %></th>
 			<% if authorize_for_with_global(:assets, :delete, true) %>
 			<th><%= l('label_delete') %></th>
 			<% end %>
@@ -14,11 +15,12 @@
 	<tbody>
 	<% @assets.each do |asset| %>
 		<tr class="<%= cycle("odd", "even") %>">
-			<td><%= link_to(asset.make, asset, :id => asset) %></td>
+			<td><%= asset.make %></td>
 			<td><%= asset.model %></td>
-			<td><%= asset.serial %></td>
+			<td><%= link_to(asset.serial, asset, :id=> asset) %></td>
 			<td><%= asset.description %></td>
 			<td><%= asset.owned_by.name %></td>
+			<td><%= asset.status.name %></td>
 			<% if authorize_for_with_global(:assets, :delete, true) %>
 			<td>
 				<%= link_to(image_tag('delete.png'), asset_path(asset,:per_page => params[:per_page], :page => params[:page]), :confirm => "Are you sure?", :method => :delete) %>
@@ -28,3 +30,5 @@
     <%- end %>
 	</tbody>
 </table>
+<pre>
+</pre>
