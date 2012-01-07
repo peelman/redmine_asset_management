@@ -25,7 +25,7 @@ class SetupRam < ActiveRecord::Migration
       t.string :make, :limit => 100, :null => false
       t.string :model, :serial, :description, :limit => 100, :null => false, :default => nil
       t.string :expected_life, :limit => 50
-      t.integer :parent_id, :owned_by, :created_by, :updated_by, :category, :status
+      t.integer :parent_id, :owned_by_id, :created_by_id, :updated_by_id, :category_id, :status_id
       t.datetime :purchase_date
       t.string :purchase_price, :limit => 15
       t.string :purchase_order_number, :limit => 50
