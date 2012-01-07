@@ -7,7 +7,7 @@ class AssetsController < ApplicationController
     @assets = Asset.find(:all,
                   :order => 'make ASC')
     respond_to do |format|
-      format.html { render :template => 'assets/asset.html.erb', :layout => !request.xhr? }
+      format.html { render :template => 'ram/assets/index.html.erb', :layout => !request.xhr? }
     end
   end
 
@@ -20,9 +20,9 @@ class AssetsController < ApplicationController
 
   def new
     @asset = Asset.new
-    @asset.contacts.build
+    @statuses = AssetStatus.all.map { |status| [status.name, status.id] }
     respond_to do |format|
-      format.html 
+      format.html { render :template => 'ram/assets/new.html.erb', :layout => !request.xhr?, :locals => { :statuses => @statuses } }
       format.js do
         render :update do |page|
           page.replace_html "assets", :partial => 'issues/assets', :locals => { :issue => @issue, :project => @project }
@@ -33,7 +33,6 @@ class AssetsController < ApplicationController
 
   def edit
     @asset = Asset.find(params[:id])
-    @asset.contacts.build
     respond_to do |format|
       format.html
     end

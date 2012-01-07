@@ -2,12 +2,11 @@ class LicensesController < ApplicationController
   unloadable
   
   def index
-
     @licenses_count = License.count
     @licenses = License.find(:all,
                   :order => 'make ASC')
     respond_to do |format|
-      format.html { render :template => 'ram/licenses/license.html.erb', :layout => !request.xhr? }
+      format.html { render :template => 'ram/licenses/index.html.erb', :layout => !request.xhr? }
     end
   end
 

@@ -25,7 +25,7 @@ class SetupRam < ActiveRecord::Migration
       t.string :make, :limit => 100, :null => false
       t.string :model, :serial, :description, :limit => 100, :null => false, :default => nil
       t.string :expected_life, :limit => 50
-      t.integer :parent_id, :owned_by, :created_by, :updated_by, :category, :default_location, :status
+      t.integer :parent_id, :owned_by, :created_by, :updated_by, :category, :status
       t.datetime :purchase_date
       t.string :purchase_price, :limit => 15
       t.string :purchase_order_number, :limit => 50
@@ -51,6 +51,7 @@ class SetupRam < ActiveRecord::Migration
     create_table :ram_asset_mac_addresses, :force => true do |t|
       t.string :mac, :limit => 21, :null => false
       t.string :type, :limit => 25, :null => false
+      t.integer :asset_id, :null => false
       t.timestamps
     end
     
