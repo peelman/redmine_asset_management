@@ -103,7 +103,7 @@ class AssetsController < ApplicationController
 
   def create
     @asset = Asset.new(params[:asset])
-    @asset.status = AssetStatus.find(params[:asset][:status_id])
+
     respond_to do |format|
       if @asset.save
         format.html { redirect_to assets_path }

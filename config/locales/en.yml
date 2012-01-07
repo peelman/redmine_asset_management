@@ -11,6 +11,7 @@ en:
   label_asset_description: Description
   label_asset_expected_life: Expected Life
   label_asset_status: Status
+  label_asset_category: Category
   label_asset_new: New Asset
   label_asset_view: View Asset
   label_asset_edit: Edit Asset
