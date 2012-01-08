@@ -6,9 +6,7 @@
 <h2><%= link_to l(:label_asset_plural), :controller => 'ram_assets', :action => 'index' %> &#187; <%= @asset.make %> (<%= @asset.model %>)</h2>
 <h3>Notes</h3>
 <div id="asset-notes">
-
-  <%= render :partial => 'ram/assets/notes/list', :locals => { :notes => @asset.notes }%>
-  
+	<%= render :partial => 'ram/assets/notes/list', :locals => { :notes => @asset.notes } %>
 </div>
 
 <h3>Issues</h3>

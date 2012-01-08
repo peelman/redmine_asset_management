@@ -14,7 +14,7 @@ class AssetsController < ApplicationController
   def show
     @asset = Asset.find(params[:id])
     respond_to do |format|
-      format.html
+      format.html { render :template => 'ram/assets/show.html.erb', :layout => !request.xhr? }
     end
   end
 
