@@ -1,0 +1,21 @@
+<%- form_for(@license) do |f| %>
+  <%= f.error_messages %>
+  <h3>License Information</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td style="text-align:right;"><%= f.label :name, l('label_licnese_name') %>:</td>
+        <td><%= f.text_field :make, :size => 20 %></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;"><%= f.label :version, l('label_license_version') %>:</td>
+        <td><%= f.text_field :version, :size => 10 %></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+
+  <p>
+    <%= f.submit "Save#{f.object.new_record? ? ' New ' : ' ' }License" %> <%= f.object.new_record? ? link_to(l(:link_cancel), licenses_path) : link_to(l(:link_cancel), license_path, :id => @license)  %>
+  </p>
+<%- end %>

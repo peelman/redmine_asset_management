@@ -1,10 +1,11 @@
-<div class="notes-list">
-    <% @notes.each do |note| %>
-	<div id="note-<%= note.id %>" class="note">
-			<div id="note-<%= note.id %>-summary" class="note-summary">
+<% 
+if @notes
+	@notes.each do |note| %>
+		<div id="note-<%= note.id %>" class="note">
+			<div id="note-<%= note.id %>-summary" class="note-summary"><%= note.summary %></div>
 			<div id="note-<%= note.id %>-body" class="note-body" style="display:none;">
+				<%= note.body %>
 			</div>
-	</div>
-    <%- end %>
-
-</div>
+		</div>
+	<% end 
+end%>

@@ -4,16 +4,26 @@
 	</div>
 <% end %>
 <h2><%= link_to l(:label_asset_plural), :controller => 'ram_assets', :action => 'index' %> &#187; <%= @asset.make %> (<%= @asset.model %>)</h2>
+
+
+
+
+<% if authorize_for_with_global(:assetnotes, :add, true) %>
+	<div class="contextual">
+	  <%= link_to('Add Asset Note', edit_asset_path, :class => 'icon icon-add') %>
+	</div>
+<% end %>
 <h3>Notes</h3>
+
+<% if @asset.notes %>
 <div id="asset-notes">
 	<%= render :partial => 'ram/assets/notes/list', :locals => { :notes => @asset.notes } %>
 </div>
+<% end %>
 
 <h3>Issues</h3>
 <div id="asset-issues">
-
-  <%= render :partial => 'ram/assets/issues/list', :locals => { :asset => @asset }%>
-
+	
 </div>
 
-<% html_title(l(:title_asset_view)) -%>
+<% html_title(l(:label_asset_view)) -%>
