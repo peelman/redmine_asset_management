@@ -9,6 +9,10 @@ module RedmineAssetManagement
         has_many :owned_assets, :class_name => "Asset"
         has_many :created_assets, :class_name => "Asset"
         has_many :updated_assets, :class_name => "Asset"
+        
+        has_many :owned_licenses, :class_name => "License"
+        has_many :created_licenses, :class_name => "License"
+        has_many :updated_licenses, :class_name => "License"
       end
     end
   end

@@ -1,12 +1,11 @@
 <% if authorize_for_with_global('licenses', 'new', true) %>
 	<div class="contextual">
-  	<%= link_to('New License', :controller => "license", :action => "new", :class => 'icon icon-add') %>
+	<%= link_to('New License', new_license_path, :class => 'icon icon-license-add') %>
 	</div>
 <% end %>
-<h2>Licenses</h2>
+<h2><%= link_to l(:page_title_ram), :controller => :redmine_asset_management, :action => :index %> &#187; Licenses</h2>
 <% if authorize_for_with_global('licenses', 'index', true) %>
 <div id="licenses">
-	
   <%= render :partial => 'ram/licenses/list' %>
   <p class="pagination"></p>
 </div>

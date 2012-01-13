@@ -63,7 +63,7 @@ class SetupRam < ActiveRecord::Migration
     create_table :ram_licenses, :force => true do |t|
       t.string :name, :limit => 100, :null => false
       t.string :version, :limit => 15
-      t.integer :type, :category, :owned_by, :created_by, :updated_by
+      t.integer :type_id, :category_id, :owned_by_id, :created_by_id, :updated_by_id
       t.integer :count
       t.string :license_notes, :limit => 1000
       t.datetime :purchase_date
@@ -96,6 +96,13 @@ class SetupRam < ActiveRecord::Migration
     
     create_table :ram_license_categories, :force => true do |t|
       t.string :name, :description
+      t.timestamps
+    end
+    
+    create_table :ram_license_notes, :force => true do |t|
+      t.string :summary, :limit => 200
+      t.string :body, :limit => 2500
+      t.integer :license_id, :created_by, :updated_by
       t.timestamps
     end
 
@@ -141,6 +148,7 @@ class SetupRam < ActiveRecord::Migration
     drop_table :ram_license_keys
     drop_table :ram_license_types
     drop_table :ram_license_categories
+    drop_table :ram_license_notes
     drop_table :ram_locations
     drop_table :ram_issue_has_assets
     drop_table :ram_asset_has_licenses

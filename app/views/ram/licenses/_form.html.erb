@@ -1,15 +1,33 @@
 <%- form_for(@license) do |f| %>
   <%= f.error_messages %>
+  <%= f.hidden_field :updated_by_id, :value => User.current.id %>
+  <%= f.hidden_field(:created_by_id, :value => User.current.id) unless @license.new_record?%>
   <h3>License Information</h3>
   <table>
     <tbody>
+	  <tr>
+        <td style="text-align:right;"><%= f.label :publisher_name, l('label_license_publisher_name') %>:</td>
+        <td><%= f.text_field :publisher_name, :size => 20 %></td>
+      </tr>
       <tr>
-        <td style="text-align:right;"><%= f.label :name, l('label_licnese_name') %>:</td>
-        <td><%= f.text_field :make, :size => 20 %></td>
+        <td style="text-align:right;"><%= f.label :name, l('label_license_name') %>:</td>
+        <td><%= f.text_field :name, :size => 20 %></td>
       </tr>
       <tr>
         <td style="text-align:right;"><%= f.label :version, l('label_license_version') %>:</td>
         <td><%= f.text_field :version, :size => 10 %></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;"><%= f.label :owned_by_id, l('label_owned_by') %>:</td>
+        <td><%= f.collection_select(:owned_by_id, User.all, :id, :name) %></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;"><%= l('label_created_by') %>:</td>
+        <td><%= @license.new_record? ? User.current.name : @license.created_by.name %></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;"><%= l('label_updated_by') %>:</td>
+        <td><%= @license.new_record? ? User.current.name : @license.updated_by.name %></td>
       </tr>
     </tbody>
   </table>

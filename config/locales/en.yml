@@ -1,19 +1,13 @@
 # English strings go here for Rails i18n
 en:
-  page_title_ram: Asset Management
+  page_title_ram: RAM
 
   label_asset: Asset
   label_asset_plural: Assets
   label_asset_make: Make
   label_asset_model: Model
   label_asset_serial: Serial
-  label_asset_description: Description
   label_asset_expected_life: Expected Life
-  label_asset_status: Status
-  label_asset_category: Category
-  label_asset_owned_by: Owned By
-  label_asset_created_by: Created By
-  label_asset_updated_by: Updated By
   label_asset_new: New Asset
   label_asset_view: View Asset
   label_asset_edit: Edit Asset
@@ -37,6 +31,12 @@ en:
   label_add: Add
   label_delete: Delete
   label_cancel: Cancel
+  label_description: Description
+  label_status: Status
+  label_category: Category
+  label_owned_by: Owned By
+  label_created_by: Created By
+  label_updated_by: Updated By
   
   multi_select_key_command: Command
   multi_select_key_control: Control

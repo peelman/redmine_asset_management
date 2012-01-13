@@ -4,7 +4,7 @@ class LicensesController < ApplicationController
   def index
     @licenses_count = License.count
     @licenses = License.find(:all,
-                  :order => 'make ASC')
+                  :order => 'name ASC')
     respond_to do |format|
       format.html { render :template => 'ram/licenses/index.html.erb', :layout => !request.xhr? }
     end
@@ -13,27 +13,21 @@ class LicensesController < ApplicationController
   def show
     @license = License.find(params[:id])
     respond_to do |format|
-      format.html
+      format.html { render :template => 'ram/licenses/show.html.erb', :layout => !request.xhr? }
     end
   end
 
   def new
     @license = License.new
     respond_to do |format|
-      format.html 
-      format.js do
-        render :update do |page|
-          page.replace_html "licenses", :partial => 'ram/issues/licenses', :locals => { :issue => @issue, :project => @project }
-        end
-      end
+      format.html { render :template => 'ram/licenses/new.html.erb', :layout => !request.xhr? }
     end
   end
 
   def edit
     @license = License.find(params[:id])
-    @license.contacts.build
     respond_to do |format|
-      format.html
+      format.html { render :template => 'ram/licenses/edit.html', :layout => !request.xhr? }
     end
   end
 
@@ -132,11 +126,13 @@ class LicensesController < ApplicationController
 
   def create
     @license = License.new(params[:license])
+    @license.created_by = User.current
+    @license.updated_by = User.current
     respond_to do |format|
       if @license.save
         format.html { redirect_to licenses_path }
       else
-        format.html { render :new }
+        format.html { redirect_to new_license_path }
       end
     end
   end
