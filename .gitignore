@@ -1,2 +1,6 @@
 .DS_Store
 */.DS_Store
+app/views/departments/*
+app/views/issues/_d*
+app/views/issues/d*
+app/views/issues/d*
