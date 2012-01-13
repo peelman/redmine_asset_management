@@ -11,7 +11,7 @@ Dispatcher.to_prepare :redmine_asset_management do
 #  Query.send(:include, RedmineAssetManagement::QueryPatch) unless Query.included_modules.include? RedmineAssetManagement::QueryPatch
 end
 
-#require_dependency 'ram_show_issue_hook'
+require_dependency 'redmine_asset_management/custom_header'
 
 Redmine::Plugin.register :redmine_asset_management do
   name 'Redmine Asset Management plugin'
