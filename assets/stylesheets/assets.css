@@ -1,0 +1,9 @@
+#admin-menu a.assets { background-image: url(../images/bricks.png); }
+
+.icon-asset-add { background-image: url(../images/computer_add.png); }
+.icon-asset-delete { background-image: url(../images/computer_delete.png); }
+.icon-asset-edit { background-image: url(../images/computer_edit.png); }
+
+.icon-license-add { background-image: url(../images/rosette_blue_add.png); }
+.icon-license-delete { background-image: url(../images/rosette_blue_delete.png); }
+.icon-license-edit { background-image: url(../images/rosette_blue_edit.png); }
