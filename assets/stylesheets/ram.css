@@ -7,3 +7,34 @@
 .icon-license-add { background-image: url(../images/rosette_blue_add.png); }
 .icon-license-delete { background-image: url(../images/rosette_blue_delete.png); }
 .icon-license-edit { background-image: url(../images/rosette_blue_edit.png); }
+
+div.ram-form {
+	padding:5px 10px;
+	border-right:2px solid black;
+	width:45%;
+	display:inline-block;
+	vertical-align:top;
+}
+
+div.ram-form.last {
+	border-right:none;
+}
+
+div.ram-form h4 {
+	padding:0px;
+	margin:0px;
+	margin-bottom:5px;
+	font-size:115%;
+	font-weight:bold;
+}
+
+div.ram-form label {
+	margin:0px;
+	display:block;
+	padding:0px 0px 5px 0px;
+	font-weight:bold;
+	font-size:110%;
+}
+div.ram-form input {
+	margin-bottom:7px;
+}

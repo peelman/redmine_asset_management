@@ -3,8 +3,16 @@
 	  <%= link_to('Edit Asset', edit_asset_path, :class => 'icon icon-edit') %>
 	</div>
 <% end %>
-<h2><%= link_to l(:label_asset_plural), :controller => 'ram_assets', :action => 'index' %> &#187; <%= @asset.make %> (<%= @asset.model %>)</h2>
+<h2>
+	<%= link_to l(:page_title_ram), :controller => 'ram', :action => 'index' %> &#187; 
+	<%= link_to l(:label_asset_plural), :controller => 'assets', :action => 'index' %> &#187; 
+	<%= @asset.make %> (<%= @asset.model %>)
+</h2>
+<div>
 
+<h5>Warranty Expiration</h5>
+<%= @asset.warranty_expiration %>	
+</div>
 
 
 

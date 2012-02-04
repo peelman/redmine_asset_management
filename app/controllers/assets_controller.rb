@@ -34,7 +34,7 @@ class AssetsController < ApplicationController
   def edit
     @asset = Asset.find(params[:id])
     respond_to do |format|
-      format.html
+      format.html { render :template => 'ram/assets/edit.html', :layout => !request.xhr? }
     end
   end
 
@@ -48,6 +48,10 @@ class AssetsController < ApplicationController
         format.html { render :edit }
       end
     end
+  end
+  
+  def addchild
+    
   end
   
   def addissue

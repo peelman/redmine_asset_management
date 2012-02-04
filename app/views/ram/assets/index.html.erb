@@ -3,7 +3,10 @@
   	<%= link_to('New Asset', new_asset_path, :class => 'icon icon-add') %>
 	</div>
 <% end %>
-<h2>Assets</h2>
+<h2>
+	<%= link_to l(:page_title_ram), :controller => 'ram', :action => 'index' %> &#187; 
+	Assets
+</h2>
 <% if authorize_for_with_global('assets', 'index', true) %>
 <div id="assets">
 	

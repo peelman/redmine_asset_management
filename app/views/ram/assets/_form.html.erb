@@ -1,44 +1,73 @@
 <%- form_for(@asset) do |f| %>
   <%= f.error_messages %>
-  <h3>Asset Information</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td style="text-align:right;"><%= f.label :make, l('label_asset_make') %>:</td>
-        <td><%= f.text_field :make, :size => 20 %></td>
-      </tr>
-      <tr>
-        <td style="text-align:right;"><%= f.label :model, l('label_asset_model') %>:</td>
-        <td><%= f.text_field :model, :size => 20 %></td>
-      </tr>
-      <tr>
-        <td style="text-align:right;"><%= f.label :serial, l('label_asset_serial') %>:</td>
-        <td><%= f.text_field :serial, :size => 40 %></td>
-      </tr>
-      <tr>
-        <td style="text-align:right;"><%= f.label :description, l('label_asset_description') %>:</td>
-        <td><%= f.text_area :description, :cols => "20", :rows => "5" %></td>
-      </tr>
-      <tr>
-        <td style="text-align:right;"><%= f.label :expected_life, l('label_asset_expected_life') %>:</td>
-        <td><%= f.text_field :expected_life, :size => 10 %></td>
-      </tr>
-      <tr>
-        <td style="text-align:right;"><%= f.label :owned_by_id, l('label_asset_owned_by') %>:</td>
-        <td><%= f.collection_select(:owned_by_id, User.all, :id, :name) %></td>
-      </tr>
-      <tr>
-        <td style="text-align:right;"><%= f.label :category_id, l('label_asset_category') %>:</td>
-        <td><%= f.collection_select(:category_id, AssetCategory.all, :id, :name) %></td>
-      </tr>
-      <tr>
-        <td style="text-align:right;"><%= f.label :status_id, l('label_asset_status') %>:</td>
-        <td><%= f.collection_select(:status_id, AssetStatus.all, :id, :name) %></td>
-      </tr>
-    </tbody>
-  </table>
-  <hr />
+	<h3>Asset Information</h3>
+	<div class="ram-form">
+		<h4>General</h4>
+		<div>
+			<%= f.label :make, l('label_asset_make') %>
+			<%= f.text_field :make, :size => 20 %>
+		</div>
+		<div>
+			<%= f.label :model, l('label_asset_model') %>
+			<%= f.text_field :model, :size => 20 %>
+		</div>
+		<div>
+			<%= f.label :serial, l('label_asset_serial') %>
+			<%= f.text_field :serial, :size => 40 %>
+		</div>
+		<div>
+			<%= f.label :description, l('label_description') %>
+			<%= f.text_area :description, :cols => "40", :rows => "5" %>
+		</div>
+		<div>
+			<%= f.label :expected_life, l('label_asset_expected_life') %>
+			<%= f.text_field :expected_life, :size => 10 %>
+		</div>
+		<div>
+			<%= f.label :warranty_expiration, l('label_asset_warranty_expiration') %>
+			<%= f.text_field :warranty_expiration, :size => 10 %>
+		</div>
+		<div>
+			<%= f.label :owned_by_id, l('label_owned_by') %>
+			<%= f.collection_select(:owned_by_id, User.all, :id, :name) %>
+		</div>
+		<div>
+			<%= f.label :category_id, l('label_category') %>
+			<%= f.collection_select(:category_id, AssetCategory.all, :id, :name) %>
+		</div>
+		<div>
+			<%= f.label :status_id, l('label_status') %>
+			<%= f.collection_select(:status_id, AssetStatus.all, :id, :name) %></tr>
+		</div>
 
+	</div>
+	<div class="ram-form last">
+		<h4>Purchase Information</h4>
+		<div>
+			<%= f.label :purchase_date, l('label_purchase_date') %>
+			<%= f.text_field :purchase_date, :size => 20 %>
+		</div>
+		<div>
+			<%= f.label :purchase_price, l('label_purchase_price') %>
+			<%= f.text_field :purchase_price, :size => 15 %>
+		</div>
+		<div>
+			<%= f.label :purchase_order_number, l('label_purchase_order_number') %>
+			<%= f.text_field :purchase_order_number, :size => 15 %>
+		</div>
+		<div>
+			<%= f.label :purchase_notes, l('label_purchase_notes') %>
+			<%= f.text_area :purchase_notes, :cols => "40", :rows => "5" %>
+		</div>
+	</div>
+<div></div>
+<div style="display:inline-block;" class="ram-form">
+  <div class="contextual">
+    Add Child
+  </div>
+  <h4>Child Assets</h4>
+
+</div>
   <p>
     <%= f.submit "Save#{f.object.new_record? ? ' New ' : ' ' }Asset" %> <%= f.object.new_record? ? link_to(l(:link_cancel), assets_path) : link_to(l(:link_cancel), asset_path, :id => @asset)  %>
   </p>

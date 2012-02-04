@@ -7,6 +7,9 @@
 			<th><%= l('label_description') %></th>
 			<th><%= l('label_owned_by') %></th>
 			<th><%= l('label_status') %></th>
+			<% if authorize_for_with_global(:assets, :edit, true) %>
+			<th><%= l('label_edit') %></th>
+			<% end %>
 			<% if authorize_for_with_global(:assets, :delete, true) %>
 			<th><%= l('label_delete') %></th>
 			<% end %>
@@ -21,6 +24,11 @@
 			<td><%= asset.description %></td>
 			<td><%= asset.owned_by.name %></td>
 			<td><%= asset.status.name %></td>
+			<% if authorize_for_with_global(:assets, :edit, true) %>
+			<td>
+				<%= link_to(image_tag('edit.png'), edit_asset_path(asset)) %>
+			</td>
+			<% end %>
 			<% if authorize_for_with_global(:assets, :delete, true) %>
 			<td>
 				<%= link_to(image_tag('delete.png'), asset_path(asset,:per_page => params[:per_page], :page => params[:page]), :confirm => "Are you sure?", :method => :delete) %>

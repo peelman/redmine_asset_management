@@ -1,0 +1,5 @@
+<h2>Edit <%= l(:label_asset) %>: <%= "#{@asset.make} #{@asset.model} #{@asset.serial}" %></h2>
+
+<%= render :partial => 'ram/assets/form' %>
+
+<% html_title(l(:label_asset_edit)) -%>

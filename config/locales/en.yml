@@ -8,10 +8,12 @@ en:
   label_asset_model: Model
   label_asset_serial: Serial
   label_asset_expected_life: Expected Life
+  label_asset_warranty_expiration: Warranty Expriation
   label_asset_new: New Asset
   label_asset_view: View Asset
   label_asset_edit: Edit Asset
   label_asset_delete: Delete Asset
+  
 
   label_license: License
   label_license_plural: Licenses
@@ -21,7 +23,6 @@ en:
   label_license_publisher_contact_email: Contact Email
   label_license_name: Name
   label_license_version: Version
-  label_license_purchase_date: Purchased
   label_license_key: Key
   label_license_new: New License
   label_license_view: View License
@@ -29,6 +30,7 @@ en:
   label_license_delete: Delete License
 
   label_add: Add
+  label_edit: Edit
   label_delete: Delete
   label_cancel: Cancel
   label_description: Description
@@ -37,6 +39,14 @@ en:
   label_owned_by: Owned By
   label_created_by: Created By
   label_updated_by: Updated By
+  label_purchase_date: Purchase Date
+  label_purchase_price: Purchase Price
+  label_purchase_order_number: PO Number
+  label_purchase_notes: Purchase Notes
+
+  heading_children: Children
+  label_parent: Parent
+  label_add_child: Add Child
   
   multi_select_key_command: Command
   multi_select_key_control: Control
