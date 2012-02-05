@@ -1,0 +1,29 @@
+<%- form_for(@pool) do |f| %>
+  <%= f.error_messages %>
+	<h3>Pool Information</h3>
+	<div class="ram-form">
+		<div class="inline">
+			<%= f.label :name, l('field_name') %>
+			<%= f.text_field :name, :size => 40 %>
+		</div>
+		<div class="inline">
+			<%= f.label :status_id, l('label_status') %>
+			<%= f.collection_select(:status_id, PoolStatus.all, :id, :name) %>
+		</div>
+		<div></div>
+		<div class="inline">
+			<%= f.label :owned_by_id, l('label_owned_by') %>
+			<%= f.collection_select(:owned_by_id, User.all, :id, :name) %>
+		</div>
+	</div>
+<div></div>
+<div class="ram-form">
+  <h4>Assets</h4>
+</div>
+<div class="ram-form">
+  <h4>Licenses</h4>
+</div>
+  <p>
+    <%= f.submit "Save #{f.object.new_record? ? 'New ' : '' }Pool" %> <%= f.object.new_record? ? link_to(l(:link_cancel), pools_path) : link_to(l(:link_cancel), pool_path, :id => @asset)  %>
+  </p>
+<%- end %>

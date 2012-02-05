@@ -11,7 +11,7 @@ class Asset < ActiveRecord::Base
   belongs_to :owned_by, :class_name => "User"
   belongs_to :created_by, :class_name => "User"
   belongs_to :updated_by, :class_name => "User"
-  belongs_to :parent_id, :class_name => "Asset"
+  belongs_to :parent, :class_name => "Asset"
   has_many :children, :class_name => "Asset", :foreign_key => :parent_id
   has_many :notes, :class_name => "AssetNote", :foreign_key => :asset_id
 

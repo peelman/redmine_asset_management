@@ -1,4 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.connect 'ram', :controller => 'redmine_asset_management', :action => 'index'
-  map.resources :assets, :licenses
+  map.resources :ram, :controller => 'redmine_asset_management', :only => [:index], :as => 'ram'
+  map.resources :assets, :licenses, :pools
 end

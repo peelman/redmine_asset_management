@@ -1,0 +1,36 @@
+<table class="list">
+	<thead style="text-align:left;">
+		<tr>
+			<th><%= l('label_name') %></th>
+			<th><%= l('label_owned_by') %></th>
+			<th><%= l('label_status') %></th>
+			<% if authorize_for_with_global(:pools, :edit, true) %>
+			<th><%= l('label_edit') %></th>
+			<% end %>
+			<% if authorize_for_with_global(:pools, :delete, true) %>
+			<th><%= l('label_delete') %></th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+	<% @pools.each do |pool| %>
+		<tr class="<%= cycle("odd", "even") %>">
+			<td><%= link_to(pool.name, pool_path(pool)) %></td>
+			<td><%= pool.owned_by.name %></td>
+			<td><%= pool.status.name %></td>
+			<% if authorize_for_with_global(:pools, :edit, true) %>
+			<td>
+				<%= link_to(image_tag('edit.png'), edit_pool_path(pool)) %>
+			</td>
+			<% end %>
+			<% if authorize_for_with_global(:pools, :delete, true) %>
+			<td>
+				<%= link_to(image_tag('delete.png'), pool_path(pool,:per_page => params[:per_page], :page => params[:page]), :confirm => "Are you sure?", :method => :delete) %>
+			</td>
+			<% end %>
+		</tr>
+    <%- end %>
+	</tbody>
+</table>
+<pre>
+</pre>

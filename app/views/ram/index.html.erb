@@ -1,25 +1,39 @@
 
 <div class="contextual">
+  	<% if authorize_for_with_global('ram_pools', 'new', true) %>
+		<%= link_to(l(:label_pool_new), new_pool_path, :class => 'icon icon-pool-add') %>
+	<% end %>
+</div>
+<h2><%= l(:label_pool_plural) %></h2>
+<% if authorize_for_with_global('ram_pools', 'index', true) %>
+<div id="licenses">
+	
+  <%= render :partial => 'ram/pools/list' %>
+  <p class="pagination">Pools Count: <%= @pools_count %> | Pool Statuses Count: <%= @pool_statuses_count %></p>
+</div>
+<% end %>
+<br /><br />
+<div class="contextual">
   	<% if authorize_for_with_global('ram_assets', 'new', true) %>
-		<%= link_to('New Asset', new_asset_path, :class => 'icon icon-asset-add') %>
+		<%= link_to(l(:label_asset_new), new_asset_path, :class => 'icon icon-asset-add') %>
 	<% end %>
 </div>
 
-<h2><%= link_to(l(:label_asset_plural),assets_path) %></h2>
+<h2><%= l(:label_asset_plural) %></h2>
 <% if authorize_for_with_global('ram_assets', 'index', true) %>
 <div id="assets">
 	
   <%= render :partial => 'ram/assets/list' %>
-  <p class="pagination">Assets Count: <%= @assets_count %> | Asset Statuses Count: <%= @asset_statuses_count %> | Pool Statuses Count: <%= @pool_statuses_count %></p>
+  <p class="pagination">Assets Count: <%= @assets_count %> | Asset Statuses Count: <%= @asset_statuses_count %></p>
 </div>
 <% end %>
 <br /><br />
 <div class="contextual">
   	<% if authorize_for_with_global('ram_licenses', 'new', true) %>
-		<%= link_to('New License', new_license_path, :class => 'icon icon-license-add') %>
+		<%= link_to(l(:label_license_new), new_license_path, :class => 'icon icon-license-add') %>
 	<% end %>
 </div>
-<h2><%= link_to(l(:label_license_plural),licenses_path) %></h2>
+<h2><%= l(:label_license_plural) %></h2>
 <% if authorize_for_with_global('ram_licenses', 'index', true) %>
 <div id="licenses">
 	
@@ -29,3 +43,6 @@
 <% end %>
 
 <% html_title(l(:page_title_ram)) -%>
+<% content_for :sidebar do %>
+    <%= render :partial => 'ram/sidebar' %>
+<% end %>

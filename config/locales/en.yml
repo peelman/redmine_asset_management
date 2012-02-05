@@ -1,22 +1,27 @@
 # English strings go here for Rails i18n
 en:
   page_title_ram: RAM
+  label_asset_management: Asset Management
 
   label_asset: Asset
   label_asset_plural: Assets
+  label_asset_new: New Asset
+  label_asset_view: View Asset
+  label_asset_edit: Edit Asset
+  label_asset_delete: Delete Asset
   label_asset_make: Make
   label_asset_model: Model
   label_asset_serial: Serial
   label_asset_expected_life: Expected Life
   label_asset_warranty_expiration: Warranty Expriation
-  label_asset_new: New Asset
-  label_asset_view: View Asset
-  label_asset_edit: Edit Asset
-  label_asset_delete: Delete Asset
   
 
   label_license: License
   label_license_plural: Licenses
+  label_license_new: New License
+  label_license_view: View License
+  label_license_edit: Edit License
+  label_license_delete: Delete License
   label_license_publisher_name: Publisher
   label_license_publisher_contact_name: Contact Name
   label_license_publisher_contact_phone: Contact Phone
@@ -24,15 +29,21 @@ en:
   label_license_name: Name
   label_license_version: Version
   label_license_key: Key
-  label_license_new: New License
-  label_license_view: View License
-  label_license_edit: Edit License
-  label_license_delete: Delete License
+
+  label_pool: Pool
+  label_pool_plural: Pools
+  label_pool_new: New Pool
+  label_pool_view: View Pool
+  label_pool_edit: Edit Pool
+  label_pool_delete: Delete Pool
+
+  label_note_add: New Note  
 
   label_add: Add
   label_edit: Edit
   label_delete: Delete
   label_cancel: Cancel
+  label_name: Name
   label_description: Description
   label_status: Status
   label_category: Category
@@ -46,7 +57,7 @@ en:
 
   heading_children: Children
   label_parent: Parent
-  label_add_child: Add Child
+  label_child_new: New Child
   
   multi_select_key_command: Command
   multi_select_key_control: Control

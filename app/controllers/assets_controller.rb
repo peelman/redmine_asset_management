@@ -40,6 +40,8 @@ class AssetsController < ApplicationController
 
   def update
     @asset = Asset.find(params[:id])
+    @asset.updated_by = User.current
+    
     respond_to do |format|
       if @asset.update_attributes(params[:asset])
         flash[:notice] = 'Asset updated!'
@@ -107,6 +109,9 @@ class AssetsController < ApplicationController
 
   def create
     @asset = Asset.new(params[:asset])
+    @asset.updated_by = User.current
+    @asset.created_by = User.current
+    
     respond_to do |format|
       if @asset.save
         format.html { redirect_to assets_path }

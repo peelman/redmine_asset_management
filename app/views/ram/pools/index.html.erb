@@ -1,0 +1,20 @@
+<% if authorize_for_with_global('pools', 'new', true) %>
+	<div class="contextual">
+  	<%= link_to('New Pool', new_pool_path, :class => 'icon icon-add') %>
+	</div>
+<% end %>
+<h2>
+	<%= l(:label_pool_plural) %>
+</h2>
+<% if authorize_for_with_global('pools', 'index', true) %>
+<div id="pools">
+	
+  <%= render :partial => 'ram/pools/list' %>
+  <p class="pagination"></p>
+</div>
+<% end %>
+<% html_title(l(:label_pool_plural)) -%>
+
+<% content_for :sidebar do %>
+    <%= render :partial => 'ram/sidebar' %>
+<% end %>

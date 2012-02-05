@@ -1,0 +1,41 @@
+<% if authorize_for_with_global(:pools, :edit, true) %>
+	<div class="contextual">
+	  <%= link_to(l(:label_pool_edit), edit_pool_path, :class => 'icon icon-edit') %>
+	</div>
+<% end %>
+
+<% html_title(l(:label_pool_view) + @pool.name ) -%>
+<h2>
+	<%= link_to l(:page_title_ram), :controller => 'ram', :action => 'index' %> &#187; 
+	<%= link_to l(:label_pool_plural), :controller => 'pools', :action => 'index' %> &#187; 
+	<%= @pool.name %>
+</h2>
+<div>
+	<h3>Owner</h3>
+	<%= @pool.owned_by.name %>	
+</div>
+<div>
+	<h3>Status</h3>
+	<%= @pool.status.name %>
+</div>
+<div>
+	<h3>Meta</h3>
+	Created by <%= @pool.created_by.name %> <span title="<%= @pool.created_at %>"><%= distance_of_time_in_words_to_now(@pool.created_at) %> ago</span><br />
+	Updated by <%= @pool.updated_by.name %> <span title="<%= @pool.updated_at %>"><%= distance_of_time_in_words_to_now(@pool.updated_at) %> ago</span>
+</div>
+
+<h3>Notes</h3>
+<% if @pool.notes %>
+<div id="pool-notes">
+	<%= render :partial => 'ram/pools/notes/list' %>
+</div>
+<% end %>
+
+<h3>Issues</h3>
+<div id="pool-issues">
+	
+</div>
+
+<% content_for :sidebar do %>
+    <%= render :partial => 'ram/sidebar' %>
+<% end %>

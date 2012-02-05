@@ -5,7 +5,7 @@ class SetupRam < ActiveRecord::Migration
   def self.up
     create_table :ram_pools, :force => true do |t|
       t.string :name
-      t.integer :parent_id, :owned_by, :created_by, :updated_by, :status
+      t.integer :parent_id, :owned_by_id, :created_by_id, :updated_by_id, :status_id
       t.timestamps
     end
 

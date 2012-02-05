@@ -8,16 +8,21 @@
 .icon-license-delete { background-image: url(../images/rosette_blue_delete.png); }
 .icon-license-edit { background-image: url(../images/rosette_blue_edit.png); }
 
+.icon-pool-add { background-image: url(../images/pool_add.png); }
+.icon-pool-delete { background-image: url(../images/pool_delete.png); }
+.icon-pool-edit { background-image: url(../images/pool_edit.png); }
+
 div.ram-form {
 	padding:5px 10px;
-	border-right:2px solid black;
-	width:45%;
-	display:inline-block;
 	vertical-align:top;
 }
 
-div.ram-form.last {
-	border-right:none;
+div.ram-form div {
+	margin-bottom:5px;
+}
+
+div.ram-form div.inline {
+	display:inline-block;
 }
 
 div.ram-form h4 {
@@ -35,6 +40,6 @@ div.ram-form label {
 	font-weight:bold;
 	font-size:110%;
 }
-div.ram-form input {
+div.ram-form input, div.ram-form select {
 	margin-bottom:7px;
 }

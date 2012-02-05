@@ -69,6 +69,6 @@
 
 </div>
   <p>
-    <%= f.submit "Save#{f.object.new_record? ? ' New ' : ' ' }Asset" %> <%= f.object.new_record? ? link_to(l(:link_cancel), assets_path) : link_to(l(:link_cancel), asset_path, :id => @asset)  %>
+    <%= f.submit "Save #{f.object.new_record? ? 'New ' : '' }Asset" %> <%= f.object.new_record? ? link_to(l(:link_cancel), assets_path) : link_to(l(:link_cancel), asset_path, :id => @asset)  %>
   </p>
 <%- end %>

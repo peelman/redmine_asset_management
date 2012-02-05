@@ -1,0 +1,10 @@
+<h2><%= l(:label_asset_management) %></h2>
+<%= link_to 'Home', ram_index_path %><br />
+<h3><%= l(:label_pool_plural) %></h3>
+<%= link_to 'View All Pools', pools_path %><br />
+<h3><%= l(:label_asset_plural) %></h3>
+<%= link_to 'View All Assets', assets_path %><br />
+<h3><%= l(:label_license_plural) %></h3>
+<%= link_to 'View All Licenses', licenses_path %><br />
+
+<%= render_sidebar_queries %>
